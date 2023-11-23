@@ -10,20 +10,21 @@ def list_of_files(directory, extension):
 
 
 
-def calculer_occurrences_mot(chemin_fichier):
-    list_f=list_of_files(chemin_fichier,'.txt')
+def calculer_occurrences_mot(directory):
+    list_f=list_of_files(directory,'.txt')
     occurrences = {}
     for fichier in list_f:
 
-        with open(chemin_fichier+fichier, 'r', encoding='utf-8') as file:
+        with open(directory+fichier, 'r', encoding='utf-8') as file:
             contenu = file.read()
-            for mot in contenu:
+            for mot in contenu.split(' '):
                     if mot in occurrences:
                         occurrences[mot] += 1
                     else:
                         occurrences[mot] = 1
 
     return occurrences
-chemin_du_fichier = './cleaned/'
-resultat_occurrences = calculer_occurrences_mot(chemin_du_fichier)
+directory = './cleaned/'
+resultat_occurrences = calculer_occurrences_mot(directory)
 
+print(resultat_occurrences)
