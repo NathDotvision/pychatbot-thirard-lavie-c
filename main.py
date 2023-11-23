@@ -12,10 +12,11 @@ Date : novembre 2023"""
 
 from fct_clean import nettoyer_et_enregistrer_fichiers_dossier_entier
 from fct_names import afficher_noms_presidents_uniques
-print("Que voulez-vous faire ?")
+
+
 print("Voici la liste des choix possibles :")
 print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : supprimer la ponctuation dans les fichiers des discours")
-choice = int(input())
+choice = int(input("Quel est votre choix ? "))
 if choice == 1 :
     if __name__ == "__main__":
         # Répertoire contenant les fichiers originaux
@@ -25,7 +26,7 @@ if choice == 1 :
         # Appeler la fonction pour afficher les noms uniques des présidents
         afficher_noms_presidents_uniques(repertoire_entree, extension)
 
-if choice == 2 :
+elif choice == 2 :
     if __name__ == "__main__":
         # Répertoire contenant les fichiers originaux
         repertoire_entree = './speeches'
@@ -35,9 +36,5 @@ if choice == 2 :
         # Nettoyer et enregistrer les fichiers du répertoire speeches dans le répertoire cleaned
         nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
 
-
-
-
-
-
-
+else :
+    print("This choice doesn't exist :/")
