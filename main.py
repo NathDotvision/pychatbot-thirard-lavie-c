@@ -10,7 +10,7 @@ Date : novembre 2023"""
 # Importations de modules externes#
 
 
-from functions import afficher_noms_presidents_uniques, nettoyer_et_enregistrer_fichiers_dossier_entier
+from fct_names import afficher_noms_presidents_uniques, nettoyer_et_enregistrer_fichiers_dossier_entier
 
 if __name__ == "__main__":
     # Répertoire contenant les fichiers originaux
@@ -26,4 +26,3 @@ if __name__ == "__main__":
     # Appeler la fonction pour afficher les noms uniques des présidents
     afficher_noms_presidents_uniques(repertoire_sortie, extension)
 
-print("d")
