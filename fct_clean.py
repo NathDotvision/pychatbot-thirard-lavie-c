@@ -14,7 +14,7 @@ def nettoyer_texte(texte):
     ponctuation = string.punctuation
     texte_sans_ponctuation = ''.join(char if char not in ponctuation else ' ' for char in texte)
     # Remplacer l'apostrophe et le tiret avec un traitement spécial
-    texte_sans_ponctuation = texte_sans_ponctuation.replace("’", "").replace("-", "").replace("\n", " ")
+    texte_sans_ponctuation = texte_sans_ponctuation.replace("’", "").replace("-", " ").replace("\n", "")
     return texte_sans_ponctuation
 
 def nettoyer_et_enregistrer_fichier_entier(chemin_entree, chemin_sortie):
