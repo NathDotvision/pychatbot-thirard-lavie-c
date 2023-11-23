@@ -1,19 +1,13 @@
 import os
 import string
 
-def list_of_files(directory, extension):
-    files_names = []
-    for filename in os.listdir(directory):
-        if filename.endswith(extension):
-            files_names.append(filename)
-    return files_names
 def nettoyer_texte(texte):
     # Convertir le texte en minuscules
     texte = texte.lower()
     # Supprimer la ponctuation
     ponctuation = string.punctuation
     texte_sans_ponctuation = ''.join(char if char not in ponctuation else ' ' for char in texte)
-    # Remplacer l'apostrophe et le tiret avec un traitement spécial
+    # Remplacer l'apostrophe, le tiret et le retour à la ligne
     texte_sans_ponctuation = texte_sans_ponctuation.replace("’", "").replace("-", " ").replace("\n", "")
     return texte_sans_ponctuation
 
