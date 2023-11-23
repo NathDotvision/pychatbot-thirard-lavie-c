@@ -28,3 +28,4 @@ directory = './cleaned/'
 resultat_occurrences = calculer_occurrences_mot(directory)
 
 print(resultat_occurrences)
+print("Hello World")
