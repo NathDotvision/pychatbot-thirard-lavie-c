@@ -1,6 +1,6 @@
 import os
 
-#crée un tableau avec lec listes des fichiers de discours
+# crée un tableau avec lec listes des fichiers de discours
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
