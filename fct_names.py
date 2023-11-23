@@ -19,7 +19,7 @@ def associer_prenom_nom(nom):
     presidents = {
         'Chirac1': {'prenom': 'Jacques', 'nom': 'Chirac'},
         'Chirac2': {'prenom': 'Jacques', 'nom': 'Chirac'},
-        'Giscard dEstaing': {'prenom': 'Valéry', 'nom': 'Giscard dEstaing'},
+        'Giscard dEstaing': {'prenom': 'Valéry', 'nom': "Giscard d'Estaing"},
         'Hollande': {'prenom': 'François', 'nom': 'Hollande'},
         'Macron': {'prenom': 'Emmanuel', 'nom': 'Macron'},
         'Mitterrand1': {'prenom': 'François', 'nom': 'Mitterrand'},
