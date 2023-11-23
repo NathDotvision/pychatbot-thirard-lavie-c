@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify main.py">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="comment on fct_names.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,6 +179,7 @@
     <MESSAGE value="change main.py" />
     <MESSAGE value="change fct_clean.py" />
     <MESSAGE value="modify main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify main.py" />
+    <MESSAGE value="comment on fct_names.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment on fct_names.py" />
   </component>
 </project>
