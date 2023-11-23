@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="change main.py">
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Chirac1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Chirac2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Giscard dEstaing.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Hollande.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Macron.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Mitterrand1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Mitterrand2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned/Nomination_Sarkozy.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
