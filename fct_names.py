@@ -1,6 +1,6 @@
 import os
-import string
 
+#crée un tableau avec lec listes des fichiers de discours
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -8,6 +8,7 @@ def list_of_files(directory, extension):
             files_names.append(filename)
     return files_names
 
+# Extrait le nom du président à partir du nom du fichier
 def extraire_noms_presidents(nom_fichier):
     # Extraire le nom du fichier sans l'extension
     nom_president = nom_fichier.replace('Nomination_', '').replace('.txt', '')
