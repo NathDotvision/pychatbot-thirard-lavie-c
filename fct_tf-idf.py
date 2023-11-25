@@ -158,42 +158,4 @@ afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f)
 
 
 
-############################
-#Question 3:
-############################
-
-
-def mot_plus_repete_chirac(directory):
-    list_f = list_of_files(directory, '.txt')
-    # initialise le dictionnaire pour stocker les occurrences de chaque mot
-    occurrences_chirac = {}
-    #une boucle sur chaque fichier
-    for fichier in list_f:
-        # vérifie si le fichier appartient au président Chirac
-        if "Chirac" in fichier:
-            # calcule le dictionnaire d'occurrences pour le fichier
-            occurrences = calculer_tf(fichier)
-
-            # met à jour le dictionnaire global d'occurrences pour Chirac
-            for mot, count in occurrences.items():
-                if mot in occurrences_chirac:
-                    occurrences_chirac[mot] += count
-                else:
-                    occurrences_chirac[mot] = count
-
-    # trouve le mot le plus répété par Chirac
-    mots_plus_repetes = []
-    max_occurrences = max(occurrences_chirac.values())
-    for mot, count in occurrences_chirac.items():
-        if count == max_occurrences:
-            mots_plus_repetes.append(mot)
-
-    return mots_plus_repetes, max_occurrences
-
-directory = './cleaned/'
-# affiche le mot le plus répété par Chirac
-mots_plus_repetes_chirac, max_occurrences_chirac = mot_plus_repete_chirac(directory)
-print("Mot(s) le(s) plus répété(s) par Chirac :", mots_plus_repetes_chirac)
-print("Nombre d'occurrences le plus élevé :", max_occurrences_chirac)
-
 
