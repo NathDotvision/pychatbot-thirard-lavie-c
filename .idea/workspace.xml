@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify fct_analyze.py" />
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py">
+      <change beforePath="$PROJECT_DIR$/fct_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_analyze.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,15 +180,7 @@
       <option name="project" value="LOCAL" />
       <updated>1701019957649</updated>
     </task>
-    <task id="LOCAL-00012" summary="modify fct_analyze.py">
-      <option name="closed" value="true" />
-      <created>1701020047394</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1701020047394</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,7 +204,6 @@
     <MESSAGE value="modify .gitignore to ignore the .idea folder" />
     <MESSAGE value="add &quot; ' &quot; to Valéry Giscard D'Estaing" />
     <MESSAGE value="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py" />
-    <MESSAGE value="modify fct_analyze.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify fct_analyze.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py" />
   </component>
 </project>

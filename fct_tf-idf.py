@@ -154,3 +154,8 @@ directory = './cleaned/'
 tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
 # affichez la matrice avec les mots, les fichiers et les scores TF-IDF
 afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f)
+
+
+
+
+
