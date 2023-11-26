@@ -38,8 +38,8 @@ for fichier in list_f:
     resultat_occurrences = calculer_tf(fichier)
 
 # Affiche le nom du fichier et le dictionnaire d'occurrences pour le fichier
-    print("Dictionnaire pour le fichier ", fichier, ":")
-    print(resultat_occurrences)
+#    print("Dictionnaire pour le fichier ", fichier, ":")
+#    print(resultat_occurrences)
 
 
 #fonction qui calcul idf
@@ -88,9 +88,7 @@ directory = './cleaned/'
 list_f = list_of_files(directory, '.txt')
 # Appelle dela fonction calculer_idf pour obtenir le dictionnaire des scores IDF
 idf_scores = calculer_idf(list_f)
-#affiche le dictionnaire des scores IDF
-print("Dictionnaire des scores IDF :")
-print(idf_scores)
+
 
 
 
@@ -131,7 +129,7 @@ def calculer_tf_idf_matrice(directory):
 directory = './cleaned/'
 #utilise la fonction calcule la matrice TF-IDF
 tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
-print(tfidf_matrice)
+
 
 
 
@@ -153,9 +151,4 @@ directory = './cleaned/'
 #utilise la fonction calcule la matrice TFIDF
 tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
 # affichez la matrice avec les mots, les fichiers et les scores TF-IDF
-afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f)
-
-
-
-
-
+#afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f)

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify .gitignore to ignore the .idea folder">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fct_clean.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_clean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fct_names.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_names.py" afterDir="false" />
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py">
+      <change beforePath="$PROJECT_DIR$/fct_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_analyze.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="analyse" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,10 +48,10 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Analyze&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Wagner/Downloads/github-copilot-intellij-1.4.2.3864.zip&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
@@ -174,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700760133651</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py">
+      <option name="closed" value="true" />
+      <created>1701019957649</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701019957649</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +203,7 @@
     <MESSAGE value="comment on fct_names.py" />
     <MESSAGE value="modify .gitignore to ignore the .idea folder" />
     <MESSAGE value="add &quot; ' &quot; to Valéry Giscard D'Estaing" />
-    <option name="LAST_COMMIT_MESSAGE" value="add &quot; ' &quot; to Valéry Giscard D'Estaing" />
+    <MESSAGE value="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify fct_tf-idf.py to fct_tf_idf.py&#10;create fct_analyze.py" />
   </component>
 </project>
