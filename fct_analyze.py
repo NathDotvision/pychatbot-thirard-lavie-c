@@ -1,6 +1,78 @@
-
 import os
 from fct_tf_idf import calculer_tf
+from fct_tf_idf import calculer_tf_idf_matrice
+
+
+############################
+#Question 1:
+############################
+
+
+def mots_non_importants(tfidf_matrice, tout_mots, list_f):
+    # initialise une liste pour stocker les mots non importants
+    mots_non_importants = []
+    # boucle sur chaque mot
+    for i in range(len(tout_mots)):
+        # initialise un booleen pour indiquer si le mot est "non important"
+        est_non_important = True
+        # vérifie si le score TF-IDF est 0 dans tous les fichiers
+        for j in range(len(list_f)):
+            if tfidf_matrice[i][j] != 0:
+                    # si le score TF-IDF n'est pas 0 le mot est important
+                est_non_important = False
+            # si le mot est non important l'ajoute à la liste
+        if est_non_important:
+            mots_non_importants.append(tout_mots[i])
+
+    return mots_non_importants
+
+directory = './cleaned/'
+# utilise la fonction calcule la matrice TF-IDF
+tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
+
+#  affiche les mots non importants
+mots_non_importants_liste = mots_non_importants(tfidf_matrice, tout_mots, list_f)
+print("Mots non importants :")
+print(mots_non_importants_liste)
+
+
+
+############################
+#Question 2:
+############################
+
+
+def mots_plus_repetes_chirac(tfidf_matrice, tout_mots, list_f):
+    # initialise une liste pour stocker les mots les plus répétés par Chirac
+    mots_plus_repetes = []
+    max_occurrences = 0
+    # boucle sur chaque mot
+    for i in range(len(tout_mots)):
+        # initialise une variable pour suivre le score maximum du mot
+        score_max_mot = 0
+        # boucle sur chaque fichier pour trouver le score maximum du mot
+        for j in range(len(list_f)):
+            if tfidf_matrice[i][j] > score_max_mot:
+                score_max_mot = tfidf_matrice[i][j]
+        # met à jour la liste des mots les plus répétés et le score maximum
+        if score_max_mot > max_occurrences:
+            mots_plus_repetes = [tout_mots[i]]
+            max_occurrences = score_max_mot
+        elif score_max_mot == max_occurrences:
+            mots_plus_repetes.append(tout_mots[i])
+
+    return mots_plus_repetes, max_occurrences
+
+
+
+directory = './cleaned/'
+tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
+#affiche le mot le plus répété par Chirac
+mots_plus_repetes_chirac, max_occurrences_chirac = mots_plus_repetes_chirac(tfidf_matrice, tout_mots, list_f)
+print("Mot le plus répété par Chirac :", mots_plus_repetes_chirac)
+print("Nombre d'occurrences le plus élevé :", max_occurrences_chirac)
+
+
 
 
 def list_of_files(directory, extension):
@@ -90,3 +162,38 @@ def premier_president_climat_ecologie(directory):
 directory = './cleaned/'
 premier_president = premier_president_climat_ecologie(directory)
 print("Premier président à parler du climat et/ou de l’écologie :", premier_president)
+
+
+############################
+#Question 6:
+############################
+
+
+def mots_communs_tous_presidents(tfidf_matrice, tout_mots, list_f):
+    # initialise une liste pour stocker les mots communs à tous les présidents
+    mots_communs = []
+
+    # boucle sur chaque mot
+    for i, mot in enumerate(tout_mots):
+        # initialise une variable pour indiquer si le mot est commun à tous les présidents
+        est_commun = True
+        # boucle sur chaque fichier pour vérifier si le score TF-IDF est non nul
+        j = 0
+        while est_commun and j < len(list_f):
+            if tfidf_matrice[i][j] == 0:
+                # si le score TF-IDF est nul dans un fichier le mot n'est pas commun
+                est_commun = False
+            j += 1
+        # si le mot est commun à tous les présidents l'ajoute à la liste
+        if est_commun:
+            mots_communs.append(mot)
+    return mots_communs
+
+directory = './cleaned/'
+# utilise la fonction qui calcule la matrice TF-IDF
+tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
+
+# affiche les mots communs à tous les présidents
+mots_communs_tous_presidents_liste = mots_communs_tous_presidents(tfidf_matrice, tout_mots, list_f)
+print("Mots important communs à tous les présidents :")
+print(mots_communs_tous_presidents_liste)
