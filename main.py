@@ -17,7 +17,7 @@ from fct_analyze import *
 # Choix des options
 def menu():
     print("Voici la liste des choix possibles :")
-    print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : Supprimer la ponctuation dans les fichiers des discours\n3 : Accéder au menu d'analyse")
+    print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : Supprimer la ponctuation dans les fichiers des discours\n3 : Accéder au menu d'analyse \n0 : Quitter le programme")
     choice = int(input("Quel est votre choix ? "))
     if choice == 1:
         if __name__ == "__main__":
@@ -27,6 +27,7 @@ def menu():
             extension = '.txt'
             # Appeler la fonction pour afficher les noms uniques des présidents avec leurs prénoms
             afficher_noms_presidents_uniques(repertoire_entree, extension)
+            menu()
 
     elif choice == 2:
         if __name__ == "__main__":
@@ -36,6 +37,7 @@ def menu():
             repertoire_sortie = './cleaned'
             # Nettoyer et enregistre les fichiers de speeches dans cleaned
             nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
+            menu()
 
 
     elif choice == 3 :
@@ -65,6 +67,8 @@ def menu():
             print("This choice doesn't exist :/ \n")
             return menu()
 
+    elif choice == 0 :
+        print("Au revoir !")
     else:
         print("This choice doesn't exist :/ \n")
         return menu()
