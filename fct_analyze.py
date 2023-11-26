@@ -103,6 +103,8 @@ directory = './cleaned/'
 mots_repetes_chirac = mots_plus_repetes_par_chirac(directory)
 print("Les mots les plus répétés par le président Chirac :", mots_repetes_chirac)
 
+# Function n°4
+
 def analyse_occurrences_nation(directory):
     presidents_occurrences = {}  # Dictionnaire pour stocker les occurrences de chaque président pour "Nation"
     all_presidents = set()  # Ensemble pour stocker tous les noms de président
@@ -144,6 +146,7 @@ if presidents_nation:
 else:
     print("Aucun président n'a parlé de la « Nation » dans les discours analysés.")
 
+# Function n°5
 
 def premier_president_climat_ecologie(directory):
     all_presidents = set()  # Ensemble pour stocker tous les noms de président
