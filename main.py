@@ -14,7 +14,6 @@ from fct_names import afficher_noms_presidents_uniques
 from fct_analyze import *
 
 
-
 # Choix des options
 def menu():
     print("Voici la liste des choix possibles :")
@@ -40,9 +39,6 @@ def menu():
 
 
     elif choice == 3 :
-        if not os.path.exists(dossier_cleaned) or not os.path.isdir(dossier_cleaned):
-            print("Veuillez d'abord utiliser la fonctionnalité de nettoyage du texte.")
-            menu()
         print("Bienvenue dans le sous-menu d'analyse : \n1 - Afficher la liste des mots les moins importants\n2 - Afficher les mots ayant le score TD-IDF le plus élevé\n3 - Afficher les mots les plus répétés par le président Chirac\n4 - les président qui ont parlé de nation\n5 - le premier président a avoir parlé d'écologie ou de climat\n6 - Afficher les mots que tout les présidents ont évoqués\n0 - Retour au menu principal")
         chan = int(input("Quel est votre choix ? "))
         if chan == 1 :
