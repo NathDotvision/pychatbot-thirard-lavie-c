@@ -45,7 +45,6 @@ def menu():
 
     elif choice == 3 :
         print("Bienvenue dans le sous-menu d'analyse : \n1 - Afficher la liste des mots les moins importants\n2 - Afficher les mots ayant le score TD-IDF le plus élevé\n3 - Afficher les mots les plus répétés par le président Chirac\n4 - les président qui ont parlé de nation\n5 - le premier président a avoir parlé d'écologie ou de climat\n6 - Afficher les mots que tout les présidents ont évoqués\n0 - Retour au menu principal")
-        print("\n")
         chan = int(input("Quel est votre choix ? "))
         print("\n")
         if chan == 1 :
