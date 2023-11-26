@@ -42,37 +42,25 @@ print(mots_non_importants_liste)
 ############################
 
 
-def mots_plus_repetes_chirac(tfidf_matrice, tout_mots, list_f):
-    # initialise une liste pour stocker les mots les plus répétés par Chirac
-    mots_plus_repetes = []
-    max_occurrences = 0
-    # boucle sur chaque mot
+def plus_grand_idf(tfidf_matrice, tout_mots):
+    max_tfidf = -1
+    max_tfidf_words = []
     for i in range(len(tout_mots)):
-        # initialise une variable pour suivre le score maximum du mot
-        score_max_mot = 0
-        # boucle sur chaque fichier pour trouver le score maximum du mot
-        for j in range(len(list_f)):
-            if tfidf_matrice[i][j] > score_max_mot:
-                score_max_mot = tfidf_matrice[i][j]
-        # met à jour la liste des mots les plus répétés et le score maximum
-        if score_max_mot > max_occurrences:
-            mots_plus_repetes = [tout_mots[i]]
-            max_occurrences = score_max_mot
-        elif score_max_mot == max_occurrences:
-            mots_plus_repetes.append(tout_mots[i])
+        mot = tout_mots[i]
+        max_tfidf_word_score = max(tfidf_matrice[i])
 
-    return mots_plus_repetes, max_occurrences
+        if max_tfidf_word_score > max_tfidf:
+            max_tfidf = max_tfidf_word_score
+            max_tfidf_words = [mot]
+        elif max_tfidf_word_score == max_tfidf:
+            max_tfidf_words.append(mot)
 
-
-
-directory = './cleaned/'
-tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
-#affiche le mot le plus répété par Chirac
-mots_plus_repetes_chirac, max_occurrences_chirac = mots_plus_repetes_chirac(tfidf_matrice, tout_mots, list_f)
-print("Mot le plus répété par Chirac :", mots_plus_repetes_chirac)
-print("Nombre d'occurrences le plus élevé :", max_occurrences_chirac)
-
-
+    return max_tfidf_words, max_tfidf
+# appel de la fonction pour trouver le mot ayant le score TF-IDF le plus élevé
+max_tfidf_words, max_tfidf_value = plus_grand_idf(tfidf_matrice, tout_mots)
+# afficher le mot ayant le score TF-IDF le plus élevé
+print("Mot ayant le score TF-IDF le plus élevé ",max_tfidf_value,":")
+print(max_tfidf_words)
 
 
 def list_of_files(directory, extension):

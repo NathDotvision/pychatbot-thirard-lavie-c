@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="modify .gitignore to ignore the .idea folder">
-      <change afterPath="$PROJECT_DIR$/fct_tf_idf.py" afterDir="false" />
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="addition of functions in fct_analyze.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fct_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_analyze.py" afterDir="false" />
     </list>
@@ -31,6 +30,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "TeoLavie"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8b18b0e4-a48e-425a-982e-df5f5da74a11" />
+        <option name="url" value="https://github.com/wek234/pychatbot-thirard-lavie-c.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,7 +74,29 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="fct_analyze" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pychatbot-thirard-lavie-c" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fct_analyze.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pychatbot-thirard-lavie-c" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +105,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -173,7 +209,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700760133651</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="addition of functions in fct_analyze.py">
+      <option name="closed" value="true" />
+      <created>1701020894108</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701020894108</updated>
+    </task>
+    <task id="LOCAL-00012" summary="addition of functions in fct_analyze.py">
+      <option name="closed" value="true" />
+      <created>1701020995138</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701020995138</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +248,7 @@
     <MESSAGE value="comment on fct_names.py" />
     <MESSAGE value="modify .gitignore to ignore the .idea folder" />
     <MESSAGE value="add &quot; ' &quot; to Valéry Giscard D'Estaing" />
-    <option name="LAST_COMMIT_MESSAGE" value="add &quot; ' &quot; to Valéry Giscard D'Estaing" />
+    <MESSAGE value="addition of functions in fct_analyze.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="addition of functions in fct_analyze.py" />
   </component>
 </project>
