@@ -18,7 +18,6 @@ from fct_analyze import *
 def menu():
     print("\n")
     print("Voici la liste des choix possibles :")
-    print("\n")
     print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : Supprimer la ponctuation dans les fichiers des discours\n3 : Accéder au menu d'analyse \n0 : Quitter le programme")
     choice = int(input("Quel est votre choix ? "))
     print("\n")
