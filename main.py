@@ -41,49 +41,48 @@ def menu():
             nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
             menu()
 
-
-    elif choice == 3 :
+    elif choice == 3:
         print("Bienvenue dans le sous-menu d'analyse : \n1 - Afficher la liste des mots les moins importants\n2 - Afficher les mots ayant le score TD-IDF le plus élevé\n3 - Afficher les mots les plus répétés par le président Chirac\n4 - les président qui ont parlé de nation\n5 - le premier président a avoir parlé d'écologie ou de climat\n6 - Afficher les mots que tout les présidents ont évoqués\n0 - Retour au menu principal")
         chan = int(input("Quel est votre choix ? "))
         print("\n")
-        if chan == 1 :
+        if chan == 1:
             if __name__ == "__main__":
                 listniw()
                 print("\n")
                 menu()
-        elif chan == 2 :
+        elif chan == 2:
             if __name__ == "__main__":
                 tdfmax()
                 print("\n")
                 menu()
-        elif chan == 3 :
+        elif chan == 3:
             if __name__ == "__main__":
                 repete()
                 print("\n")
                 menu()
-        elif chan == 4 :
+        elif chan == 4:
             if __name__ == "__main__":
                 occnation()
                 print("\n")
                 menu()
-        elif chan == 5 :
+        elif chan == 5:
             if __name__ == "__main__":
                 climeco()
                 print("\n")
                 menu()
-        elif chan == 6 :
+        elif chan == 6:
             if __name__ == "__main__":
                 communs()
                 print("\n")
                 menu()
-        elif chan == 0 :
+        elif chan == 0:
             print("\n")
             menu()
-        else :
+        else:
             print("This choice doesn't exist :/ \n")
             return menu()
 
-    elif choice == 0 :
+    elif choice == 0:
         print("\nAu revoir !\n")
     else:
         print("This choice doesn't exist :/ \n")
