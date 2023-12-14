@@ -71,16 +71,17 @@ def calculer_idf(liste_f):
                         # si le mot n'existe pas, initialise le compteur à 1
                         score[mot] = 1
 # Boucle à travers chaque mot dans le dictionnaire de scores
-    for mot in score:
-        compt = 0
-    # boucle à travers chaque fichier dans la liste
-        for fichier in liste_f:
-            #vérifie si le mot est présent dans le dictionnaire d'occurrences du fichier
-            if mot in calculer_tf(fichier):
-                # Si le mot est présent count incrémente le compteur
-                compt += 1
-        # calcul du score IDF pour chaque mot
-        score[mot] = math.log(nb_docs / (compt + 1))  # formuule pour calculer idf
+        for mot in score:
+            compt = 0
+            # boucle à travers chaque fichier dans la liste
+            for fichier in liste_f:
+                # vérifie si le mot est présent dans le dictionnaire d'occurrences du fichier
+                if mot in calculer_tf(fichier):
+                    # Si le mot est présent count incrémente le compteur
+                    compt += 1
+            # calcul du score IDF pour chaque mot
+            idf = nb_docs / (compt + 1)
+            score[mot] = math.log(idf) if idf > 1 else 0  # formuule pour calculer idf
     return score
 
 
