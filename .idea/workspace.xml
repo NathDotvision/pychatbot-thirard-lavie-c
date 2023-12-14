@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="update main.py">
-      <change afterPath="$PROJECT_DIR$/analyze_qst.py" afterDir="false" />
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="question">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analyze_qst.py" beforeDir="false" afterPath="$PROJECT_DIR$/analyze_qst.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fct_tf_idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_tf_idf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="e1c28911-d063-49a5-9223-65305c63dcc7" />
+        <option name="accountId" value="ed8d513c-038e-4a46-bcbe-5265896c5e00" />
         <option name="url" value="https://github.com/wek234/pychatbot-thirard-lavie-c.git" />
       </UrlAndAccount>
     </option>
@@ -263,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701954373090</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="question">
+      <option name="closed" value="true" />
+      <created>1702560058054</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702560058054</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +297,7 @@
     <MESSAGE value="comments and update menu" />
     <MESSAGE value="update cleaned" />
     <MESSAGE value="update main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="update main.py" />
+    <MESSAGE value="question" />
+    <option name="LAST_COMMIT_MESSAGE" value="question" />
   </component>
 </project>

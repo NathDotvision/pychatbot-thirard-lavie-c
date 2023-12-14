@@ -1,6 +1,16 @@
 import string
-from fct_tf_idf import tout_mots
-qst = input("Quelle est votre question ? ")
+import math
+from fct_tf_idf import tout_mots, list_f, tfidf_matrice
+qst = ("mesdames les")
+
+def matrice_to_dict(tfidf_matrice, tout_mots):
+    tfidf_dict = {}
+    for i in range(len(tout_mots)):
+        tfidf_dict[tout_mots[i]] = tfidf_matrice[i]
+    return tfidf_dict
+
+tfidf_dict = matrice_to_dict(tfidf_matrice, tout_mots)
+
 def tokenqst(qst):
     # Supprimer la ponctuation
     texte_question = qst.translate(str.maketrans('', '', string.punctuation))
@@ -25,36 +35,70 @@ def find_common_terms(qst):
     # Trouver l'intersection de ces deux ensembles
     common_words = corpus_words.intersection(question_words)
     print(common_words)
-    return common_words
+    return list(common_words)
 
 from fct_tf_idf import idf_scores
 
 def calculer_vecteur_tf_idf_qst(qst):
     # Tokeniser la question
     mots_question = tokenqst(qst)
+    termes_communs = find_common_terms(qst)
 
     # Calculer le score TF pour chaque mot dans la question
     tf_scores = {}
-    for mot in mots_question:
-        if mot in tf_scores:
-            tf_scores[mot] += 1
-        else:
-            tf_scores[mot] = 1
+    for mot in termes_communs:
+        tf_scores[mot] = mots_question.count(mot) / len(mots_question)
 
-    for mot in tf_scores:
-        tf_scores[mot] /= len(mots_question)
-
-    # Initialiser le vecteur TF-IDF avec des zéros pour tous les mots du corpus
-    tf_idf_vecteur = {mot: 0 for mot in tout_mots}
-
-    # Calculer le score TF-IDF pour chaque mot dans la question
+    # Utiliser les scores IDF du corpus pour les mots de la question
+    tf_idf_scores = {}
     for mot, tf in tf_scores.items():
-        if mot in idf_scores:
-            tf_idf_vecteur[mot] = tf * idf_scores[mot]
+        if mot in idf_scores:  # Ensure the word is in the idf_scores dictionary
+            tf_idf_scores[mot] = tf * idf_scores[mot]
 
-    # Filtrer le dictionnaire pour ne garder que les mots dont le score est différent de 0
-    tf_idf_vecteur = {mot: score for mot, score in tf_idf_vecteur.items() if score != 0}
-    print(tf_idf_vecteur)
-    return tf_idf_vecteur
+    # Transform the dictionary into a list of TF-IDF scores
+    tf_idf_list = list(tf_idf_scores.values())
 
-calculer_vecteur_tf_idf_qst(qst)
+    print(tf_idf_list)
+    return tf_idf_list
+
+tfidf_qst = calculer_vecteur_tf_idf_qst(qst)
+
+
+def dot_product(A, B):
+    return sum(float(a)*float(b) for a, b in zip(A, B))
+
+def norm(vector):
+    return math.sqrt(sum(float(x)**2 for x in vector))
+
+def cosine_similarity(A, B):
+    norm_A = norm(A)
+    norm_B = norm(B)
+    if norm_A != 0 and norm_B != 0:
+        return dot_product(A, B) / (norm_A * norm_B)
+    else:
+        return 0
+
+def most_relevant_document(tfidf_matrix, tfidf_vector_qst, list_f):
+    # Ensure tfidf_vector_qst is a list of floats
+    tfidf_vector_qst = [float(i) for i in tfidf_vector_qst]
+    similarities = [cosine_similarity(tfidf_vector_qst, [float(i) for i in tfidf_vector]) for tfidf_vector in tfidf_matrix]
+    max_index = similarities.index(max(similarities))
+    return list_f[max_index]
+
+
+relevant_document = most_relevant_document(tfidf_matrice, tfidf_qst, list_f)
+
+def generate_response(tfidf_vector_qst, relevant_document):
+    max_tf_idf_word = max(tfidf_vector_qst)
+    with open('cleaned/' + relevant_document, 'r') as file:
+        text = file.read()
+        print(type(text))
+        sentences = text.split(' ')
+        print(type(sentences))
+    for sentence in sentences:
+        if max_tf_idf_word in sentence:
+            return sentence.strip().capitalize() + '.'
+    return 1
+
+response = generate_response(tfidf_qst, relevant_document)
+print(response)

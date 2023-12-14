@@ -44,44 +44,31 @@ for fichier in list_f:
 
 #fonction qui calcul idf
 def calculer_idf(liste_f):
-        # Initialise un dictionnaire pour stocker les scores IDF de chaque mot
     score = {}
-
-    #  obtient le nombre total de documents dans la liste
     nb_docs = len(liste_f)
+    tf_scores_per_file = {}  # Store TF scores for each file
 
-    #Boucle à travers chaque fichier dans la liste
     for fichier in liste_f:
+        tf_scores_per_file[fichier] = calculer_tf(fichier)  # Calculate TF scores once per file
         with open('./cleaned/' + fichier, 'r', encoding='utf-8') as file:
             contenu = file.read()
-
-            # initialise un ensemble pour suivre les mots présents dans le fichier
             mots_pres = set()
-                # boucle à travers chaque mot du contenu du fichier
             for mot in contenu.split(' '):
-                # vérifie si le mot n'est pas déjà présent dans l'ensemble
                 if mot not in mots_pres:
-                    #ajouter le mot à l'ensemble pour éviter le double comptage
                     mots_pres.add(mot)
-                     # vcérifie si le mot existe déjà dans le dictionnaire de scores
                     if mot in score:
-                        # si le mot existe, incrémente le compteur de documents où il apparaît
                         score[mot] += 1
                     else:
-                        # si le mot n'existe pas, initialise le compteur à 1
                         score[mot] = 1
-# Boucle à travers chaque mot dans le dictionnaire de scores
-        for mot in score:
-            compt = 0
-            # boucle à travers chaque fichier dans la liste
-            for fichier in liste_f:
-                # vérifie si le mot est présent dans le dictionnaire d'occurrences du fichier
-                if mot in calculer_tf(fichier):
-                    # Si le mot est présent count incrémente le compteur
-                    compt += 1
-            # calcul du score IDF pour chaque mot
-            idf = nb_docs / (compt + 1)
-            score[mot] = math.log(idf) if idf > 1 else 0  # formuule pour calculer idf
+
+    for mot in score:
+        compt = 0
+        for fichier in liste_f:
+            if mot in tf_scores_per_file[fichier]:  # Refer to stored TF scores
+                compt += 1
+        idf = nb_docs / (compt + 1)
+        score[mot] = math.log(idf) if idf > 1 else 0
+
     return score
 
 
