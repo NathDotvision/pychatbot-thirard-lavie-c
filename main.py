@@ -25,7 +25,7 @@ repertoire_sortie = './cleaned'
 nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
 
 
-# Choix des options
+# Fonction pour le choix des options
 def menu():
     print("\n")
     print("Voici la liste des choix possibles :")
