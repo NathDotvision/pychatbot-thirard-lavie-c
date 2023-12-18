@@ -1,5 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+PyChat Bot
+Programme projet python semestre 01 L1 Efrei
+
+Auteur : Téo Lavie & Wagner Thirard
+Date : novembre-décembre 2023
+
+Fichier : fct_analyze.py
+Fonction : Fonctions d'analyse des discours
+"""
+
+
 from fct_tf_idf import *
 # fonction liste des fichiers
+
+
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -8,11 +23,13 @@ def list_of_files(directory, extension):
     return files_names
 
 # fonction qui calcule la matrice TF-IDF
+
+
 directory = './cleaned/'
 tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
 
 ############################
-#Question 1:
+# Question 1:
 ############################
 
 
@@ -33,6 +50,8 @@ def mots_non_importants():
     return mots_non_importants
 
 # affiche les mots non importants
+
+
 def listniw():
     mots_non_importants_liste = mots_non_importants()
     print("Mots non importants :")
@@ -40,7 +59,7 @@ def listniw():
 
 
 ############################
-#Question 2:
+# Question 2:
 ############################
 
 
@@ -62,6 +81,8 @@ def plus_grand_tfidf():
     return max_tfidf_words, max_tfidf
 
 # affiche le mot ayant le score TF-IDF le plus élevé
+
+
 def tdfmax():
     max_tfidf_words, max_tfidf_value = plus_grand_tfidf()
     print("Mot ayant le score TF-IDF le plus élevé ", max_tfidf_value, ":")
@@ -70,6 +91,7 @@ def tdfmax():
 ############################
 # Function n°3
 ############################
+
 
 def mots_plus_repetes_chirac(directory):
     chirac_occurrences = {}  # Dictionnaire pour stocker les occurrences de chaque mot pour Chirac
@@ -88,6 +110,8 @@ def mots_plus_repetes_chirac(directory):
     return mots_plus_repetes[:10]  # Les 10 mots les plus répétés
 
 # affiche les mots les plus répétés par le président Chirac
+
+
 def repete():
     directory = './cleaned/'
     mots_repetes_chirac = mots_plus_repetes_chirac(directory)
@@ -97,7 +121,9 @@ def repete():
 # Function n°4
 ############################
 
-def occurrences_nation(directory):
+
+def occurrences_mot(directory):
+    motchoisi = input("quel mot voulez vous chercher ? ")
     presidents_occurrences = {}  # Dictionnaire pour stocker les occurrences de chaque président pour "Nation"
     all_presidents = set()  # Ensemble pour stocker tous les noms de président
 
@@ -109,11 +135,11 @@ def occurrences_nation(directory):
             all_presidents.add(president)
 
             occurrences = calculer_tf(fichier)
-            if "nation" in occurrences:
+            if motchoisi in occurrences:
                 if president in presidents_occurrences:
-                    presidents_occurrences[president] += occurrences["nation"]
+                    presidents_occurrences[president] += occurrences[motchoisi]
                 else:
-                    presidents_occurrences[president] = occurrences["nation"]
+                    presidents_occurrences[president] = occurrences[motchoisi]
 
     if not presidents_occurrences:  # Vérifier si la liste est vide
         return [], None  # Si la liste est vide, retourner des résultats vides
@@ -123,26 +149,29 @@ def occurrences_nation(directory):
     # Trouve le président qui a répété le plus de fois le mot "nation"
     president_plus_repete = max(presidents_occurrences, key=presidents_occurrences.get)
 
-    return presidents_nation, president_plus_repete
+    return presidents_nation, president_plus_repete, motchoisi
 
 # affiche les président qui ont utilisé « nation » dans leurs discours
-def occnation():
-    directory = './cleaned/'
-    presidents_nation, president_plus_repete = occurrences_nation(directory)
 
-    if president_plus_repete == "Chirac2" :
+
+def occmot():
+    directory = './cleaned/'
+    presidents_nation, president_plus_repete, motchoisi = occurrences_mot(directory)
+
+    if "Chirac2" in president_plus_repete:
         president_plus_repete = "Chirac"
-    if president_plus_repete == "Mitterrand2" :
+    if "Mitterrand2" in president_plus_repete:
         president_plus_repete = "Mitterrand"
     if presidents_nation:
-        print("Président(s) qui ont parlé de la « Nation » :", presidents_nation)
+        print("Président(s) qui ont parlé de", motchoisi, ":", presidents_nation)
         print("Président qui l’a répété le plus de fois :", president_plus_repete)
     else:
-        print("Aucun président n'a parlé de la « Nation » dans les discours analysés.")
+        print("Aucun président n'a parlé de ", motchoisi, " dans les discours analysés.")
 
 ############################
 # Function n°5
 ############################
+
 
 def climat_ecologie(directory):
     all_presidents = set()  # Ensemble pour stocker tous les noms de président
@@ -157,6 +186,8 @@ def climat_ecologie(directory):
             return president  # Le premier président à parler du climat ou de l'écologie
 
 # affiche le premier président à parler du climat ou de l’écologie
+
+
 def climeco():
     directory = './cleaned/'
     premier_president = climat_ecologie(directory)
@@ -164,7 +195,7 @@ def climeco():
 
 
 ############################
-#Question 6:
+# Question 6:
 ############################
 
 
@@ -189,6 +220,8 @@ def mots_communs(tfidf_matrice, tout_mots, list_f):
     return mots_comm
 
 # affiche les mots communs à tous les présidents
+
+
 def communs():
     directory = './cleaned/'
     # utilise la fonction qui calcule la matrice TF-IDF

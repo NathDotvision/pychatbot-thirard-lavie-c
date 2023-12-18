@@ -1,5 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+PyChat Bot
+Programme projet python semestre 01 L1 Efrei
+
+Auteur : Téo Lavie & Wagner Thirard
+Date : novembre-décembre 2023
+
+Fichier : fct_tf_idf.py
+Fonction : Fonctions de calcul des scores TF-IDF
+"""
+
+
 import os
 import math
+
+
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -8,41 +23,43 @@ def list_of_files(directory, extension):
     return files_names
 
 # Fonction qui calcul le tf des fichier
+
+
 def calculer_tf(fichier):
     # initialise un dictionnaire pour stocker les occurrences de chaque mot dans le fichier
     occurrences = {}
     # Ouverture du fichier en mode lecture avec l'encodage UTF-8
     with open('./cleaned/' + fichier, 'r', encoding='utf-8') as file:
-         #Lit le contenu complet du fichier
+        # Lit le contenu complet du fichier
         contenu = file.read()
 
         # boucle à travers chaque mot dans le contenu du fichier
         for mot in contenu.split(' '):
             # Vérifie si le mot est déjà dans le dictionnaire d'occurrences
             if mot in occurrences:
-                #si le mot existe, incrémente le compteur d'occurrences
+                # si le mot existe, incrémente le compteur d'occurrences
                 occurrences[mot] += 1
             else:
-                #si le mot n'existe pas, initialise le compteur d'occurrences à 1
+                # si le mot n'existe pas, initialise le compteur d'occurrences à 1
                 occurrences[mot] = 1
     return occurrences
 
 
-# Définit le répertoire des fichiers et permet d'obtenir la liste des noms de fichiers avec l'extension '.txt' dans le répertoire cleaned
+# Définit le répertoire des fichiers et permet d'obtenir la liste des noms de fichiers dans le répertoire cleaned
 directory = './cleaned/'
 list_f = list_of_files(directory, '.txt')
 
 # création d'une boucle à travers chaque fichier dans la liste
 for fichier in list_f:
-    #appelle la fonction calculer_tf pour obtenir le dictionnaire d'occurrences
+    # appelle la fonction calculer_tf pour obtenir le dictionnaire d'occurrences
     resultat_occurrences = calculer_tf(fichier)
 
 # Affiche le nom du fichier et le dictionnaire d'occurrences pour le fichier
-#    print("Dictionnaire pour le fichier ", fichier, ":")
+#    print("Dictionnaire pour le fichier ", fichier,":")
 #    print(resultat_occurrences)
 
 
-#fonction qui calcul idf
+# fonction qui calcul idf
 def calculer_idf(liste_f):
     score = {}
     nb_docs = len(liste_f)
@@ -78,11 +95,9 @@ list_f = list_of_files(directory, '.txt')
 idf_scores = calculer_idf(list_f)
 
 
-
-
 def calculer_tf_idf_matrice(directory):
     list_f = list_of_files(directory, '.txt')
-    #initialisation de la liste des scores TF-IDF pour chaque fichier
+    # initialisation de la liste des scores TF-IDF pour chaque fichier
     tfidf_matrice_data = []
 # boucle sur chaque fichier pour calculer les scores TF-IDF
     for fichier in list_f:
@@ -114,14 +129,13 @@ def calculer_tf_idf_matrice(directory):
         tfidf_matrice.append(lig_data)
     return tfidf_matrice, tout_mots, list_f
 
+
 directory = './cleaned/'
-#utilise la fonction calcule la matrice TF-IDF
+# utilise la fonction calcule la matrice TF-IDF
 tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
 
 
-
-
-#Création de la fonction pour plus de lisibilité pour la comprehension des reponses
+# Création de la fonction pour plus de lisibilité pour la comprehension des reponses
 def afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f):
     # affichez les noms de fichiers en tant qu'en tête
     print("", end="    ")
@@ -135,8 +149,5 @@ def afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f):
             print(tfidf_matrice[i][j], end="    ")
         print()
 
+
 directory = './cleaned/'
-#utilise la fonction calcule la matrice TFIDF
-tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
-# affichez la matrice avec les mots, les fichiers et les scores TF-IDF
-#afficher_matrice_mots_et_fichiers(tfidf_matrice, tout_mots, list_f)

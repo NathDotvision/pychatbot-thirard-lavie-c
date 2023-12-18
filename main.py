@@ -4,7 +4,10 @@ PyChat Bot
 Programme projet python semestre 01 L1 Efrei
 
 Auteur : Téo Lavie & Wagner Thirard
-Date : novembre 2023
+Date : novembre-décembre 2023
+
+Fichier : main.py
+Fonction : Menu principal du programme
 """
 
 
@@ -14,11 +17,19 @@ from fct_names import afficher_noms_presidents_uniques
 from fct_analyze import *
 
 
+# Répertoire contenant les discours
+repertoire_entree = './speeches'
+# Répertoire de sortie pour les fichiers nettoyés
+repertoire_sortie = './cleaned'
+# Nettoyer et enregistre les fichiers de speeches dans cleaned
+nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
+
+
 # Choix des options
 def menu():
     print("\n")
     print("Voici la liste des choix possibles :")
-    print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : Supprimer la ponctuation dans les fichiers des discours\n3 : Accéder au menu d'analyse \n0 : Quitter le programme")
+    print("1 : Afficher la liste des présidents dont les discours sont disponibles dans le programme \n2 : Accéder au menu d'analyse \n0 : Quitter le programme")
     choice = int(input("Quel est votre choix ? "))
     print("\n")
     if choice == 1:
@@ -31,18 +42,13 @@ def menu():
             afficher_noms_presidents_uniques(repertoire_entree, extension)
             menu()
 
-    elif choice == 2:
-        if __name__ == "__main__":
-            # Répertoire contenant les discours
-            repertoire_entree = './speeches'
-            # Répertoire de sortie pour les fichiers nettoyés
-            repertoire_sortie = './cleaned'
-            # Nettoyer et enregistre les fichiers de speeches dans cleaned
-            nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
-            menu()
 
-    elif choice == 3:
-        print("Bienvenue dans le sous-menu d'analyse : \n1 - Afficher la liste des mots les moins importants\n2 - Afficher les mots ayant le score TD-IDF le plus élevé\n3 - Afficher les mots les plus répétés par le président Chirac\n4 - les président qui ont parlé de nation\n5 - le premier président a avoir parlé d'écologie ou de climat\n6 - Afficher les mots que tout les présidents ont évoqués\n0 - Retour au menu principal")
+    elif choice == 2:
+        print("Bienvenue dans le sous-menu d'analyse : \n1 - Afficher la liste des mots les moins importants\n2 - "
+              "Afficher les mots ayant le score TD-IDF le plus élevé\n3 - Afficher les mots les plus répétés par le "
+              "président Chirac\n4 - chercher un mot qu'un président a le plus répété \n5 - le premier président a "
+              "avoir parlé d'écologie ou de climat\n6 - Afficher les mots que tout les présidents ont évoqués \n0 - "
+              "Retour au menu principal")
         chan = int(input("Quel est votre choix ? "))
         print("\n")
         if chan == 1:
@@ -62,7 +68,7 @@ def menu():
                 menu()
         elif chan == 4:
             if __name__ == "__main__":
-                occnation()
+                occmot()
                 print("\n")
                 menu()
         elif chan == 5:
@@ -87,5 +93,6 @@ def menu():
     else:
         print("This choice doesn't exist :/ \n")
         return menu()
+
 
 menu()
