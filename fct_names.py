@@ -1,6 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+PyChat Bot
+Programme projet python semestre 01 L1 Efrei
+
+Auteur : Téo Lavie & Wagner Thirard
+Date : novembre-décembre 2023
+
+Fichier : fct_names.py
+Fonction : fonctions de gestion des noms des présidents
+"""
+
+
 import os
 
-# crée un tableau avec les listes des fichiers de discours
+
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -9,10 +22,13 @@ def list_of_files(directory, extension):
     return files_names
 
 # Extrait le nom du président à partir du nom du fichier
+
+
 def extraire_noms_presidents(nom_fichier):
     # Extraire le nom du fichier sans l'extension
     nom_president = nom_fichier.replace('Nomination_', '').replace('.txt', '')
     return nom_president
+
 
 def associer_prenom_nom(nom):
     # Ajouter des règles de correspondance pour associer un prénom et un nom à chaque nom si nécessaire
@@ -27,6 +43,7 @@ def associer_prenom_nom(nom):
         'Sarkozy': {'prenom': 'Nicolas', 'nom': 'Sarkozy'}
     }
     return presidents.get(nom, {'prenom': 'Prénom non trouvé', 'nom': 'Nom non trouvé'})
+
 
 def afficher_noms_presidents_uniques(directory, extension):
     # Liste des fichiers dans le répertoire avec l'extension spécifiée
@@ -46,4 +63,3 @@ def afficher_noms_presidents_uniques(directory, extension):
     print("Liste des noms uniques des présidents :")
     for nom in noms_presidents_uniques:
         print(nom)
-

@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+
+PyChat Bot
+Programme projet python semestre 01 L1 Efrei
+
+Auteur : Téo Lavie & Wagner Thirard
+Date : novembre-décembre 2023
+
+Fichier : .gitignore
+Fonction : fichier de configuration git
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

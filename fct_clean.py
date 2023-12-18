@@ -1,13 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+PyChat Bot
+Programme projet python semestre 01 L1 Efrei
+
+Auteur : Téo Lavie & Wagner Thirard
+Date : novembre-décembre 2023
+
+Fichier : fct_clean.py
+Fonction : Fonctions de nettoyage des discours
+"""
+
+
 import os
 import string
 
-# crée un tableau avec les listes des fichiers de discours
+
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
         if filename.endswith(extension):
             files_names.append(filename)
     return files_names
+
 
 def nettoyer_texte(texte):
     # Convertir le texte en minuscules
@@ -19,17 +33,19 @@ def nettoyer_texte(texte):
     texte_sans_ponctuation = texte_sans_ponctuation.replace("’", "").replace("-", " ").replace("\n", "")
     return texte_sans_ponctuation
 
+
 def nettoyer_et_enregistrer_fichier_entier(chemin_entree, chemin_sortie):
     # Lire le contenu du fichier
     with open(chemin_entree, 'r', encoding='utf-8') as file:
         contenu = file.read()
 
     # Nettoyer le texte
-    texte_nettoye = nettoyer_texte(contenu)
+    texte_clean = nettoyer_texte(contenu)
 
     # Écrire le texte nettoyé dans le nouveau fichier
     with open(chemin_sortie, 'w', encoding='utf-8') as file:
-        file.write(texte_nettoye)
+        file.write(texte_clean)
+
 
 def nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie):
     # Créer le répertoire de sortie s'il n'existe pas
