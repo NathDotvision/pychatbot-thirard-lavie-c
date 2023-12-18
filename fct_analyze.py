@@ -32,7 +32,7 @@ tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
 # Question 1:
 ############################
 
-
+#Cette fonction identifie et retourne une liste de mots non importants avec les scores TF-IDF.
 def mots_non_importants():
 
     # initialise une liste pour stocker les mots non importants
@@ -50,8 +50,6 @@ def mots_non_importants():
     return mots_non_importants
 
 # affiche les mots non importants
-
-
 def listniw():
     mots_non_importants_liste = mots_non_importants()
     print("Mots non importants :")
@@ -62,10 +60,8 @@ def listniw():
 # Question 2:
 ############################
 
-
+# fonction pour trouver le mot ayant le score TF-IDF le plus élevé
 def plus_grand_tfidf():
-    # appel de la fonction pour trouver le mot ayant le score TF-IDF le plus élevé
-
     max_tfidf = -1
     max_tfidf_words = []
     for i in range(len(tout_mots)):
@@ -82,7 +78,6 @@ def plus_grand_tfidf():
 
 # affiche le mot ayant le score TF-IDF le plus élevé
 
-
 def tdfmax():
     max_tfidf_words, max_tfidf_value = plus_grand_tfidf()
     print("Mot ayant le score TF-IDF le plus élevé ", max_tfidf_value, ":")
@@ -92,7 +87,7 @@ def tdfmax():
 # Function n°3
 ############################
 
-
+#fonction qui 1retourne une liste des 10 mots les plus répétés dans les discours du president Chirac.
 def mots_plus_repetes_chirac(directory):
     chirac_occurrences = {}  # Dictionnaire pour stocker les occurrences de chaque mot pour Chirac
     chirac_files = [fichier for fichier in list_of_files(directory, '.txt') if 'Chirac' in fichier]
@@ -121,7 +116,7 @@ def repete():
 # Function n°4
 ############################
 
-
+#fonction qui prend un mot en entree et identifie les présidents qui ont parlé de ce mot et retourne le président qui l'a répété le plus de fois.
 def occurrences_mot(directory):
     motchoisi = input("quel mot voulez vous chercher ? ")
     presidents_occurrences = {}  # Dictionnaire pour stocker les occurrences de chaque président pour "Nation"
@@ -172,7 +167,7 @@ def occmot():
 # Function n°5
 ############################
 
-
+#fonction qui identifie et retourne le premier président à parler du climat ou de l'écologie.
 def climat_ecologie(directory):
     all_presidents = set()  # Ensemble pour stocker tous les noms de président
 
@@ -198,9 +193,8 @@ def climeco():
 # Question 6:
 ############################
 
-
+#fonction identifie et retourne une liste de mots qui sont communs à tous les présidents en se basant sur les scores TF-IDF.
 def mots_communs(tfidf_matrice, tout_mots, list_f):
-    # initialise une liste pour stocker les mots communs à tous les présidents
     mots_comm = []
 
     # boucle sur chaque mot
