@@ -24,11 +24,13 @@ repertoire_sortie = './cleaned'
 nettoyer_et_enregistrer_fichiers_dossier_entier(repertoire_entree, repertoire_sortie)
 
 
+
 # Choix des options
 def afficher_presidents_disponibles():
     repertoire_entree = './speeches'
     extension = '.txt'
     afficher_noms_presidents_uniques(repertoire_entree, extension)
+
 
 
 def menu_analyse():

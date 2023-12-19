@@ -13,7 +13,13 @@ Fonction : fonctions de gestion des noms des présidents
 
 import os
 
+"""
+Retourne une liste des noms de fichiers avec l'extension spécifiée dans le répertoire donné.
 
+paramètre directory: Le répertoire à examiner.
+paramètre extension: L'extension des fichiers recherchés.
+return: Une liste des noms de fichiers avec l'extension spécifiée.
+"""
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -25,13 +31,13 @@ def list_of_files(directory, extension):
 
 
 def extraire_noms_presidents(nom_fichier):
-    # Extraire le nom du fichier sans l'extension
+    # extraire le nom du fichier sans l'extension
     nom_president = nom_fichier.replace('Nomination_', '').replace('.txt', '')
     return nom_president
 
 
 def associer_prenom_nom(nom):
-    # Ajouter des règles de correspondance pour associer un prénom et un nom à chaque nom si nécessaire
+    #Ajouter des règles de correspondance pour associer un prénom et un nom à chaque nom si nécessaire
     presidents = {
         'Chirac1': {'prenom': 'Jacques', 'nom': 'Chirac'},
         'Chirac2': {'prenom': 'Jacques', 'nom': 'Chirac'},
@@ -59,7 +65,7 @@ def afficher_noms_presidents_uniques(directory, extension):
         nom_complet = f"{info_president['prenom']} {info_president['nom']}"
         noms_presidents_uniques.add(nom_complet)
 
-    # Afficher la liste des noms uniques des présidents
+    #Afficher la liste des noms uniques des présidents
     print("Liste des noms uniques des présidents :")
     for nom in noms_presidents_uniques:
         print(nom)
