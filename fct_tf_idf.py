@@ -29,11 +29,18 @@ def list_of_files(directory, extension):
     return files_names
 
 
+
+directory = './cleaned/'
+list_f = list_of_files(directory, '.txt')
+# Appelle dela fonction calculer_idf pour obtenir le dictionnaire des scores IDF
+
+
+
+# Fonction qui calcul le tf des fichier
 def calculer_tf(fichier):
     occurrences = {}
     with open('./cleaned/' + fichier, 'r', encoding='utf-8') as file:
         contenu = file.read()
-
         # boucle à travers chaque mot dans le contenu du fichier
         for mot in contenu.split(' '):
             # Vérifie si le mot est déjà dans le dictionnaire d'occurrences
@@ -43,19 +50,27 @@ def calculer_tf(fichier):
             else:
                 # si le mot n'existe pas ça initialise le compteur d'occurrences à 1
                 occurrences[mot] = 1
+        # print(occurrences)
     return occurrences
 
+def resultat_occu():
+    # création d'une boucle à travers chaque fichier dans la liste
+    result_occu = {}
+    for i in range(len(list_f)):
+        fichier = list_f[i]
+        occurence = calculer_tf(fichier)
+        result_occu[i] = occurence
+    # Affiche le nom du fichier et le dictionnaire d'occurrences pour le fichier
+    #    print("Dictionnaire pour le fichier ", fichier,":")
+    return result_occu
 
-directory = './cleaned/'
-list_f = list_of_files(directory, '.txt')
 
+resultat_occurrences = resultat_occu()
 
-for fichier in list_f:
-    # appelle la fonction calculer_tf pour obtenir le dictionnaire d'occurrences
-    resultat_occurrences = calculer_tf(fichier)
 
 """
 Calcule le terme fréquence-inverse du document (IDF) pour chaque mot dans la liste de fichiers donnée.
+
 
 paramètre liste_f: La liste des noms de fichiers
 return: Un dictionnaire contenant les scores IDF pour chaque mot
@@ -65,8 +80,12 @@ def calculer_idf(liste_f):
     nb_docs = len(liste_f)
     tf_scores_per_file = {}
 
-    for fichier in liste_f:# stocke les scores TF dans un dictionnaire pour éviter les recalculs inutiles
-        tf_scores_per_file[fichier] = calculer_tf(fichier)
+
+    # for fichier in liste_f:
+    for i in range(len(list_f)):
+        fichier = list_f[i]
+        tf_scores_per_file[fichier] = resultat_occurrences[i]  # Calculate TF scores once per file
+
         with open('./cleaned/' + fichier, 'r', encoding='utf-8') as file:
             contenu = file.read()
             mots_pres = set()
@@ -91,9 +110,6 @@ def calculer_idf(liste_f):
     return score
 
 
-directory = './cleaned/'
-list_f = list_of_files(directory, '.txt')
-# Appelle dela fonction calculer_idf pour obtenir le dictionnaire des scores IDF
 idf_scores = calculer_idf(list_f)
 
 """
@@ -103,12 +119,19 @@ paramètre directory: Le répertoire contenant les fichiers à analyser
 return: La matrice TF-IDF la liste de tous les mots uniques et la liste des noms de fichiers
 """
 def calculer_tf_idf_matrice(directory):
-    list_f = list_of_files(directory, '.txt')
+
+    # initialisation de la liste des scores TF-IDF pour chaque fichier
     tfidf_matrice_data = []
-    # boucle sur chaque fichier pour calculer les scores TF-IDF
-    for fichier in list_f:
+    tfidf_matrice = []
+# boucle sur chaque fichier pour calculer les scores TF-IDF
+    for i in range(len(list_f)):
+        fichier = list_f[i]
+        #print(fichier)
+
+
         # calculez les scores TF pour le fichier actuel
-        tf_scores = calculer_tf(fichier)
+        #print(len(list_f))
+        tf_scores = resultat_occurrences[i]
         # calculez les scores TF-IDF pour chaque mot dans le fichier
         tfidf_scores = {}
         for mot, tf in tf_scores.items():
@@ -116,28 +139,30 @@ def calculer_tf_idf_matrice(directory):
         # ajoute les scores TF-IDF du fichier à la liste
         tfidf_matrice_data.append(tfidf_scores)
 
-    # boucle à travers chaque fichier pour obtenir la liste de tous les mots uniques
+    for tfidf_scores in tfidf_matrice_data:
+        # initialisez une ligne de la matrice avec des zeros
+
+        lig_data = []
+        # boucle sur chaque fichier pour récupérer le score TF-IDF du mot
+        for mot in tfidf_scores :
+            lig_data.append(tfidf_scores[mot])
+        # ajoutez la ligne à la matrice TF-IDF
+        tfidf_matrice.append(lig_data)
+
+    # obtenez la liste de tous les mots uniques
     tout_mots = []
     for tfidf_scores in tfidf_matrice_data:
         for mot in tfidf_scores.keys():
             if mot not in tout_mots:
-                tout_mots.append(mot)
-
-    tfidf_matrice = []
-    # boucle sur chaque mot pour creer une ligne dans la matrice
-    for mot in tout_mots:
-        lig_data = []
-        # boucle sur chaque fichier pour récupérer le score TF-IDF du mot
-        for tfidf_scores in tfidf_matrice_data:
-            lig_data.append(tfidf_scores.get(mot, 0))
-        # ajoutez la ligne à la matrice TF-IDF
-        tfidf_matrice.append(lig_data)
-    return tfidf_matrice, tout_mots, list_f
+                 tout_mots.append(mot)
+    # initialisez la matrice TF-IDF
+    #print(tfidf_matrice)
+    return tfidf_matrice, tout_mots
 
 
 directory = './cleaned/'
 # utilise la fonction calcule la matrice TF-IDF
-tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
+tfidf_matrice, tout_mots = calculer_tf_idf_matrice(directory)
 
 """
 Affiche la matrice TF-IDF avec les mots en ligne et les fichiers en colonnes.
