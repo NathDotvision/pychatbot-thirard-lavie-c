@@ -22,11 +22,11 @@ ChatBot Python d'analyse de textes.
 
 ## Screenshots
 #### Menu principal :
-![Menu principal](https://snipboard.io/3f7xSK.jpg)
+![Menu principal](https://snipboard.io/1nkh0K.jpg)
 Il suffit de taper le numéro de la fonctionnalité dont on a besoin.
 
 #### Menu d'analyse des discours :
-![Menu analyse](https://snipboard.io/LcUt2I.jpg)
+![Menu analyse](https://snipboard.io/XBU8fl.jpg)
 Il suffit aussi de taper le numéro de la fonctionnalité de on a besoin.
 
 #### Exemple d'utilisation du programme : 
