@@ -42,8 +42,7 @@ def menu_analyse():
           "5 - Le premier président à avoir parlé d'écologie ou de climat\n"
           "6 - Afficher les mots que tous les présidents ont évoqués \n"
           "0 - Retour au menu principal")
-    # choix_sous_menu = int(input("Quel est votre choix ? "))
-    choix_sous_menu = 3
+    choix_sous_menu = int(input("Quel est votre choix ? "))
     print("\n")
 
     if choix_sous_menu == 1:
