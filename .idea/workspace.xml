@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="recréation du fichier chatbot, modification du main.py pour améliorer une fonction [2-4],modification des en-têtes,commentaires + nettoyage.">
+    <list default="true" id="7307f624-1c82-4a8c-88fc-f79bbb7e6dd2" name="Changes" comment="le désespoir du fonctionnement de ce programme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fct_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_analyze.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fct_chatbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_chatbot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fct_tf_idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/fct_tf_idf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702917572209</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="le désespoir du fonctionnement de ce programme">
+      <option name="closed" value="true" />
+      <created>1702946741268</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702946741268</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,6 +358,7 @@
     <MESSAGE value="question" />
     <MESSAGE value="question ne fonctionne pas" />
     <MESSAGE value="recréation du fichier chatbot, modification du main.py pour améliorer une fonction [2-4],modification des en-têtes,commentaires + nettoyage." />
-    <option name="LAST_COMMIT_MESSAGE" value="recréation du fichier chatbot, modification du main.py pour améliorer une fonction [2-4],modification des en-têtes,commentaires + nettoyage." />
+    <MESSAGE value="le désespoir du fonctionnement de ce programme" />
+    <option name="LAST_COMMIT_MESSAGE" value="le désespoir du fonctionnement de ce programme" />
   </component>
 </project>

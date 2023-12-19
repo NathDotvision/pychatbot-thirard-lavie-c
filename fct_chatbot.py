@@ -69,9 +69,8 @@ def trouver_document_pertinent(vecteur_question, noms_fichiers):
 
     similarite_max = (0, None)
     for i, vecteur_doc in enumerate(transpose_matrice(tfidf_matrice)):
-        #print(vecteur_question)
         score_similarite = similarite(vecteur_doc, vecteur_question)
-        #print(score_similarite)
+        #print("AAAAAH",score_similarite)
         if score_similarite > similarite_max[0]:
             similarite_max = (score_similarite, noms_fichiers[i])
     return similarite_max[1]
@@ -98,7 +97,7 @@ def phrase_avec_mot(nom_fichier, mot):
 def chatbot():
     question = input('Posez votre question : ')
     scores_tf_idf = tf_idf_question(question)
-    print(scores_tf_idf)
+    #print(scores_tf_idf)
     fichier_pertinent = trouver_document_pertinent(scores_tf_idf, list_f)
     mot_pertinent = mot_plus_pertinent(scores_tf_idf)
     if mot_pertinent:
