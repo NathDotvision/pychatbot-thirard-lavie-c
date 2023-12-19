@@ -25,9 +25,6 @@ def list_of_files(directory, extension):
 # fonction qui calcule la matrice TF-IDF
 
 
-directory = './cleaned/'
-tfidf_matrice, tout_mots, list_f = calculer_tf_idf_matrice(directory)
-
 ############################
 # Question 1:
 ############################

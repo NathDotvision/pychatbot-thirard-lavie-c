@@ -21,15 +21,16 @@ def transpose_matrice(matrice):
     return [list(colonne) for colonne in zip(*matrice)]
 
 
-def nettoyer_texte(texte):
+def nettoyer_texte(texte):  # OK
     # Nettoie le texte en ne conservant que les caractères alphabétiques et les exceptions définies
     exceptions = "çàéèêëïù0123456789"
-    texte = [character if ("a" <= character <= "z") or character in exceptions else " " for character in texte]
-    texte = ("".join(texte)).split(" ")
+    texte = texte.lower()
+    texte = [character if ("a" <= character <= "z") or character in exceptions else ";" for character in texte]
+    texte = ("".join(texte)).split(";")
     return [mot for mot in texte if mot]
 
 
-def tf_question(quest):
+def tf_question(quest):  # OK
     # Calcule la fréquence des mots dans la question
     mots = nettoyer_texte(quest)
     occurences = {}
@@ -41,8 +42,7 @@ def tf_question(quest):
 
 def tf_idf_question(quest):
     # Calcule le score TF-IDF pour chaque mot de la question
-    mots = nettoyer_texte(quest)
-    scores_tf = tf_question(mots)
+    scores_tf = tf_question(quest)
     return [scores_tf.get(mot, 0) * idf_scores.get(mot, 0) for mot in tout_mots]
 
 
@@ -64,20 +64,21 @@ def similarite(vecteur1, vecteur2):
     return produit_scalaire_resultat / (norme_a * norme_b) if norme_a and norme_b else 0
 
 
-def trouver_document_pertinent(noms_fichiers):
+def trouver_document_pertinent(vecteur_question, noms_fichiers):
     # Trouve le document le plus pertinent en calculant la similarité entre la question et chaque document
+
     similarite_max = (0, None)
-    vecteur_question = tf_idf_question(question)
     for i, vecteur_doc in enumerate(transpose_matrice(tfidf_matrice)):
+        #print(vecteur_question)
         score_similarite = similarite(vecteur_doc, vecteur_question)
+        #print(score_similarite)
         if score_similarite > similarite_max[0]:
             similarite_max = (score_similarite, noms_fichiers[i])
     return similarite_max[1]
 
 
-def mot_plus_pertinent(quest):
+def mot_plus_pertinent(scores_tf_idf):  # OK
     # Trouve le mot le plus pertinent dans la question en utilisant le score TF-IDF
-    scores_tf_idf = tf_idf_question(quest)
     score_max = max(scores_tf_idf)
     if score_max > 0:
         return tout_mots[scores_tf_idf.index(score_max)]
@@ -94,11 +95,14 @@ def phrase_avec_mot(nom_fichier, mot):
     return None
 
 
-question = input('Posez votre question : ')
-fichier_pertinent = trouver_document_pertinent(list_f)
-mot_pertinent = mot_plus_pertinent(question)
-if mot_pertinent:
-    reponse = phrase_avec_mot(fichier_pertinent, mot_pertinent)
-    print(reponse if reponse else "Aucune phrase pertinente trouvée.")
-else:
-    print("Aucun mot pertinent trouvé dans la question.")
+def chatbot():
+    question = input('Posez votre question : ')
+    scores_tf_idf = tf_idf_question(question)
+    print(scores_tf_idf)
+    fichier_pertinent = trouver_document_pertinent(scores_tf_idf, list_f)
+    mot_pertinent = mot_plus_pertinent(scores_tf_idf)
+    if mot_pertinent:
+        reponse = phrase_avec_mot(fichier_pertinent, mot_pertinent)
+        print(reponse if reponse else "Aucune phrase pertinente trouvée.")
+    else:
+        print("Aucun mot pertinent trouvé dans la question.")
